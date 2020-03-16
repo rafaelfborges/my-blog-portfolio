@@ -2,7 +2,7 @@ import React from "react"
 import propTypes from "prop-types"
 import { Link } from "gatsby"
 
-import * as S from "./styled"
+import * as S from "./styles"
 
 const Pagination = ({
   isFirst,
