@@ -33,7 +33,6 @@ exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   return graphql(`
     {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
@@ -79,8 +78,8 @@ exports.createPages = ({ graphql, actions }) => {
         component: path.resolve("./src/templates/blog-post.js"),
         context: {
           slug: node.fields.slug,
-          previousPost: previous,
-          nextPost: next,
+          previousPost: next,
+          nextPost: previous,
         },
       })
     })
