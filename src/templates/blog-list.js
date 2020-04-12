@@ -26,17 +26,17 @@ const BlogList = props => {
             fields: { slug },
           },
         }) => (
-          <PostItem
-            key={id}
-            slug={slug}
-            background={background}
-            category={category}
-            date={date}
-            timeToRead={timeToRead}
-            title={title}
-            description={description}
-          />
-        )
+            <PostItem
+              key={id}
+              slug={slug}
+              background={background}
+              category={category}
+              date={date}
+              timeToRead={timeToRead}
+              title={title}
+              description={description}
+            />
+          )
       )}
 
       <Pagination
