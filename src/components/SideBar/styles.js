@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "styled-media-query"
 
 export const SidebarWrapper = styled.aside`
   align-items: center;
@@ -8,7 +9,14 @@ export const SidebarWrapper = styled.aside`
   flex-direction: column;
   height: 100vh;
   position: fixed;
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
-  width: 18rem;
+  width: 20rem;
+
+  ${media.lessThan("large")`
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem 2rem;
+    width: 100%;
+  `}
 `

@@ -16,7 +16,6 @@ const Profile = () => {
           title
           position
           description
-          author
         }
       }
     }

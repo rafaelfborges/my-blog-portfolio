@@ -64,7 +64,9 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
+          fields {
+            slug
+          }
           frontmatter {
             background
             category
@@ -73,9 +75,6 @@ export const query = graphql`
             title
           }
           timeToRead
-          fields {
-            slug
-          }
         }
       }
     }
