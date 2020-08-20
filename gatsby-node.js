@@ -1,6 +1,7 @@
 const path = require("path")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+// To add the slug field to each post
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   // Ensures we are processing only markdown files
@@ -21,16 +22,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
-  const config = getConfig()
-  if (stage.startsWith("develop") && config.resolve) {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      "react-dom": "@hot-loader/react-dom",
-    }
-  }
-}
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
@@ -47,6 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
               date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
               description
               title
+              image
             }
             timeToRead
           }
@@ -75,8 +67,10 @@ exports.createPages = ({ graphql, actions }) => {
     posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve("./src/templates/blog-post.js"),
+        component: path.resolve(`./src/templates/blog-post.js`),
         context: {
+          // Data passed to context is available
+          // in page queries as GraphQL variables.
           slug: node.fields.slug,
           previousPost: next,
           nextPost: previous,
@@ -90,7 +84,7 @@ exports.createPages = ({ graphql, actions }) => {
     Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? `/` : `/page/${index + 1}`,
-        component: path.resolve("./src/templates/blog-list.js"),
+        component: path.resolve(`./src/templates/blog-list.js`),
         context: {
           limit: postsPerPage,
           skip: index * postsPerPage,
