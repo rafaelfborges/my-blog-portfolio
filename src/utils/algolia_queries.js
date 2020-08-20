@@ -8,6 +8,7 @@ const postsQuery = `{
         fields {
           slug
         }
+        timeToRead
         frontmatter {
           background
           title
