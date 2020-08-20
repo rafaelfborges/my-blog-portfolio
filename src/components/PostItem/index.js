@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import * as S from "./styles"
+import * as S from "./styled"
 
 const PostItem = ({
   slug,

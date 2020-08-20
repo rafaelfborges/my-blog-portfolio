@@ -1,7 +1,7 @@
 import React from "react"
 import links from "./content"
 
-import * as S from "./styles"
+import * as S from "./styled"
 
 const MenuLinks = () => (
   <S.MenuLinksWrapper>

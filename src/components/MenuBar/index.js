@@ -8,7 +8,7 @@ import {
 } from "styled-icons/boxicons-regular"
 import { ThList as List } from "styled-icons/typicons/ThList"
 
-import * as S from "./styles"
+import * as S from "./styled"
 
 const MenuBar = () => {
   const [theme, setTheme] = useState(null)
